@@ -1,0 +1,80 @@
+<div class="home-wrapper d-flex flex-column" style="min-height: 100vh; background-color: #f4f6f9;">
+
+  <nav class="navbar navbar-expand-lg ford-navbar">
+
+    <div class="container">
+
+        <a class="navbar-brand" routerLink="/home">
+
+            <img src="assets/ford-logo.png"
+                 alt="Ford"
+                 height="45">
+
+        </a>
+
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#menuHome">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <div class="collapse navbar-collapse"
+             id="menuHome">
+
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+
+                    <a class="nav-link"
+                       routerLink="/home">
+
+                        Home
+
+                    </a>
+
+                </li>
+
+                <li class="nav-item">
+
+                    <a class="nav-link"
+                       routerLink="/dashboard">
+
+                        Dashboard
+
+                    </a>
+
+                </li>
+
+                <li class="nav-item">
+
+                    <a class="nav-link text-warning"
+                       (click)="logout()"
+                       style="cursor:pointer">
+
+                        Logout
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+  <div class="d-flex flex-fill align-items-center justify-content-around p-5 flex-wrap">
+    <div class="card card-shadow p-4" style="max-width: 380px;">
+      <h5>Sistema de dados FORD</h5>
+      <p class="mb-0">Seja bem-vindo(a), {{ nome }}!</p>
+      <a routerLink="/dashboard" class="btn ford-primary mt-3">Ir para o Dashboard</a>
+    </div>
+
+    <img src="assets/vehicles/territory.png" alt="Ford Territory" style="max-width: 420px; width: 100%;" />
+  </div>
+</div>

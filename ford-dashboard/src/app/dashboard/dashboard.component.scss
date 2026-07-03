@@ -1,0 +1,73 @@
+body{
+    background:#f3f4f6;
+}
+
+.dashboard-wrapper{
+
+    min-height:100vh;
+
+    background:#f3f4f6;
+
+}
+
+.ford-navbar{
+
+    background:#003478;
+
+    box-shadow:0 2px 8px rgba(0,0,0,.2);
+
+}
+
+.navbar-brand img{
+
+    width:auto;
+
+}
+
+.nav-link{
+
+    color:white!important;
+
+    font-weight:600;
+
+}
+
+.card{
+
+    border:none;
+
+    border-radius:15px;
+
+}
+
+.card-shadow{
+
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+
+}
+
+table{
+
+    background:white;
+
+}
+
+table thead{
+
+    background:#003478;
+
+    color:white;
+
+}
+
+img{
+
+    transition:.4s;
+
+}
+
+.form-control{
+
+    border-radius:10px;
+
+}

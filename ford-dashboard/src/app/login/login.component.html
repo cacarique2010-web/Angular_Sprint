@@ -1,0 +1,64 @@
+<div class="login-wrapper d-flex">
+  <div class="login-image d-none d-md-flex flex-fill align-items-center justify-content-center"
+       style="background-color: #eef2f7;">
+    <div class="login-image"></div>
+       <img
+    src="assets/c4.avif"
+    alt="Ford Mustang"
+    class="mustang-banner"
+  />
+
+  <div class="banner-overlay"></div>
+  </div>
+
+  <div class="login-panel d-flex flex-column justify-content-center align-items-center p-4 flex-fill">
+    <img src="assets/ford-logo.png" alt="Ford" class="mb-4" style="max-width: 160px;" />
+
+    <h4 class="mb-4 text-success">Boas-vindas</h4>
+
+    <form (ngSubmit)="onSubmit()" class="w-100" style="max-width: 320px;">
+      <div class="mb-3">
+        <label class="form-label">E-mail</label>
+        <input
+          type="email"
+          class="form-control"
+          name="email"
+          [(ngModel)]="email"
+          placeholder="Insira seu e-mail"
+          required
+        />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Senha</label>
+        <div class="input-group">
+          <input
+            [type]="showPassword ? 'text' : 'password'"
+            class="form-control"
+            name="senha"
+            [(ngModel)]="senha"
+            placeholder="Insira sua senha"
+            required
+          />
+          <button type="button" class="btn btn-outline-secondary" (click)="togglePassword()">
+            {{ showPassword ? 'Ocultar' : 'Mostrar' }}
+          </button>
+        </div>
+      </div>
+
+      <div class="form-check form-switch mb-3">
+        <input class="form-check-input" type="checkbox" name="rememberMe" [(ngModel)]="rememberMe" />
+        <label class="form-check-label">Logar automaticamente</label>
+      </div>
+
+      <div class="alert alert-danger py-2" *ngIf="errorMessage">
+        {{ errorMessage }}
+      </div>
+
+      <button type="submit" class="btn ford-primary w-100" [disabled]="loading">
+        {{ loading ? 'Entrando...' : 'Entrar' }}
+      </button>
+
+    </form>
+  </div>
+</div>

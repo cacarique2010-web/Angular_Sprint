@@ -1,0 +1,148 @@
+<div class="dashboard-wrapper">
+  <nav class="navbar navbar-expand-lg ford-navbar">
+  <div class="container-fluid">
+
+    <a class="navbar-brand d-flex align-items-center" routerLink="/home">
+      <img src="assets/images/ford_logo.png"
+           height="45"
+           alt="Ford">
+    </a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#menu">
+
+      <span class="navbar-toggler-icon"></span>
+
+    </button>
+
+    <div class="collapse navbar-collapse" id="menu">
+
+      <ul class="navbar-nav ms-auto">
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/home">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/dashboard">Dashboard</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link text-danger"
+             (click)="logout()"
+             style="cursor:pointer">
+
+            Logout
+
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+
+  </div>
+</nav>
+
+  <div class="container-fluid py-4">
+    <div class="row g-3">
+
+      <!-- Passo 8: cartão de busca por modelo -->
+      <div class="col-md-3">
+        <div class="card card-shadow p-3 h-100">
+          <label class="form-label fw-bold">Veículo</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Buscar modelo..."
+            [(ngModel)]="modelSearchTerm"
+            (ngModelChange)="onModelSearchChange($event)"
+          />
+          <ul class="list-group mt-2" *ngIf="modelResults.length">
+            <li
+              class="list-group-item list-group-item-action"
+              *ngFor="let v of modelResults"
+              (click)="selectVehicle(v)"
+              style="cursor: pointer;"
+            >
+              {{ v.vehicle }}
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Passo 9: cartões de resumo -->
+      <div class="col-md-3">
+        <div class="card card-shadow p-3 h-100 text-center">
+          <span class="text-muted">Total de Vendas</span>
+          <h3>{{ selectedVehicle?.volumetotal ?? '--' }}</h3>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card card-shadow p-3 h-100 text-center">
+          <span class="text-muted">Conectados</span>
+          <h3>{{ selectedVehicle?.connected ?? '--' }}</h3>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card card-shadow p-3 h-100 text-center">
+          <span class="text-muted">Update Software</span>
+          <h3>{{ selectedVehicle?.softwareUpdates ?? '--' }}</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- Passo 10: imagem central do veículo selecionado -->
+    <div class="row mt-4" *ngIf="selectedVehicle">
+      <div class="col-12 d-flex justify-content-center">
+        <img [src]="getVehicleImage(selectedVehicle.vehicle)" [alt]="selectedVehicle.vehicle" style="max-height: 260px;" />
+      </div>
+    </div>
+
+    <!-- Passo 11: tabela com busca por código (VIN) -->
+    <div class="row mt-4">
+      <div class="col-12">
+        <div class="card card-shadow p-3">
+          <div class="mb-3" style="max-width: 320px;">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Buscar por código (VIN)..."
+              [(ngModel)]="vinSearchTerm"
+              (ngModelChange)="onVinSearchChange($event)"
+            />
+          </div>
+
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Código - VIN</th>
+                <th>Odômetro</th>
+                <th>Pressão dos pneus</th>
+                <th>Status</th>
+                <th>Bateria</th>
+                <th>Nível de combustível</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let row of vehicleDataResults">
+                <td>{{ row.vin }}</td>
+                <td>{{ row.odometer }} Km</td>
+                <td>{{ row.tirePressure }}</td>
+                <td>{{ row.status }}</td>
+                <td>{{ row.batteryStatus }}</td>
+                <td>{{ row.fuelLevel }} %</td>
+              </tr>
+              <tr *ngIf="!vehicleDataResults.length">
+                <td colspan="6" class="text-center text-muted">Nenhum resultado encontrado.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

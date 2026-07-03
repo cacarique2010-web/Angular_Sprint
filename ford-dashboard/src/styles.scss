@@ -1,0 +1,20 @@
+html, body { height: 100%; margin: 0; font-family: 'Segoe UI', Roboto, Arial, sans-serif; }
+
+.bg-image {
+  background-size: cover;
+  background-position: center;
+}
+
+.card-shadow {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  border-radius: 12px;
+}
+
+.ford-navbar {
+  background-color: #003478;
+}
+
+.ford-primary {
+  background-color: #003478 !important;
+  color: #fff !important;
+}

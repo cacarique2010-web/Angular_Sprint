@@ -1,0 +1,130 @@
+.login-wrapper{
+    display:flex;
+    height:100vh;
+    width:100%;
+    overflow:hidden;
+}
+
+/* Lado esquerdo */
+.login-image{
+    width:70%;
+    background:#000;
+    overflow:hidden;
+    position:relative;
+}
+
+.login-panel{
+    width:30%;
+    background:linear-gradient(
+        180deg,
+        #0d1726 0%,
+        #16263d 45%,
+        #1d1d1d 100%
+    );
+
+    color:white;
+
+    box-shadow:
+        -10px 0 40px rgba(0,0,0,.6),
+        inset 1px 0 rgba(255,255,255,.08);
+}
+
+.login-wrapper{
+    display:flex;
+    width:100%;
+    height:100vh;
+    overflow:hidden;
+}
+
+/* Lado esquerdo */
+.login-image{
+    position:relative;
+    width:70%;
+    height:100vh;
+    overflow:hidden;
+    background:#000;
+}
+
+/* Imagem */
+.mustang-banner{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center;
+    transition:transform .8s ease;
+}
+
+/* Zoom suave */
+.login-image:hover .mustang-banner{
+    transform:scale(1.05);
+}
+
+/* Degradê por cima */
+.banner-overlay{
+    position:absolute;
+    inset:0;
+    background:
+        linear-gradient(
+            to right,
+            rgba(0,0,0,.15),
+            rgba(0,0,0,.45)
+        );
+}
+
+/* Painel direito */
+.login-panel{
+    width:30%;
+    background:linear-gradient(180deg,#0d1726,#1b1b1b);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    box-shadow:-15px 0 40px rgba(0,0,0,.6);
+}
+
+.login-panel img{
+    width:180px;
+    filter:drop-shadow(0 0 18px rgba(0,140,255,.45));
+}
+.ford-primary{
+    background:linear-gradient(90deg,#0066ff,#0099ff);
+    border:none;
+    color:white;
+    font-weight:600;
+    transition:.3s;
+}
+
+.ford-primary:hover{
+    transform:translateY(-2px);
+    box-shadow:0 0 25px rgba(0,136,255,.5);
+}
+.form-control{
+    background:#23344d;
+    border:1px solid #39516f;
+    color:white;
+}
+
+.form-control::placeholder{
+    color:#b9c3d2;
+}
+
+.form-control:focus{
+    background:#2a3e5a;
+    border-color:#0d8bff;
+    box-shadow:0 0 15px rgba(0,140,255,.35);
+    color:white;
+}
+.form-label{
+    color:#d5dbe6;
+}
+.login-panel h4{
+    color:#00A3FF;
+    font-weight:700;
+    letter-spacing:1px;
+}
+.mustang-banner{
+    filter:
+        contrast(1.15)
+        saturate(1.2)
+        brightness(.92);
+}
